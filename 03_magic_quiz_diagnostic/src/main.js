@@ -1,0 +1,181 @@
+import { createInitialState } from "./state.js";
+import { createMagicGuide } from "./components/magicGuide.js";
+import { createQuizScreen } from "./components/quiz.js";
+import { createResultScreen } from "./components/result.js";
+import { questions } from "./data/questions.js";
+import { resultOrder, results } from "./data/results.js";
+import { texts } from "./data/texts.js";
+
+const app = document.querySelector("#app");
+let state = createInitialState();
+
+function setState(nextState) {
+  state = { ...state, ...nextState };
+  render();
+}
+
+function render() {
+  if (!app) {
+    return;
+  }
+
+  app.replaceChildren();
+
+  if (state.screen === "quiz") {
+    app.append(renderQuiz());
+    return;
+  }
+
+  if (state.screen === "result") {
+    app.append(renderResult());
+    return;
+  }
+
+  app.append(renderStart());
+}
+
+function renderStart() {
+  const section = document.createElement("section");
+  section.className = "screen screen--start";
+
+  const kicker = document.createElement("p");
+  kicker.className = "kicker";
+  kicker.textContent = texts.start.eyebrow;
+
+  const title = document.createElement("h1");
+  title.className = "visually-hidden";
+  title.textContent = texts.start.title;
+
+  const lead = document.createElement("p");
+  lead.className = "visually-hidden";
+  lead.textContent = texts.start.lead;
+
+  const guide = createMagicGuide({
+    heading: texts.start.title,
+    text: texts.start.lead,
+    ariaLabel: "Вступление к тесту",
+  });
+
+  const facts = document.createElement("div");
+  facts.className = "summary-strip";
+
+  texts.start.facts.forEach((fact) => {
+    const item = document.createElement("div");
+    item.className = "summary-item";
+
+    const dot = document.createElement("span");
+    dot.className = "summary-dot";
+    dot.setAttribute("aria-hidden", "true");
+
+    const text = document.createElement("span");
+    text.textContent = fact;
+
+    item.append(dot, text);
+    facts.append(item);
+  });
+
+  const actions = document.createElement("div");
+  actions.className = "start-actions";
+
+  const startButton = document.createElement("button");
+  startButton.className = "button button--primary";
+  startButton.type = "button";
+  startButton.textContent = texts.start.startButton;
+  startButton.addEventListener("click", startQuiz);
+
+  actions.append(startButton);
+  section.append(kicker, title, lead, guide, facts, actions);
+
+  return section;
+}
+
+function renderQuiz() {
+  const question = questions[state.currentQuestionIndex];
+
+  return createQuizScreen({
+    question,
+    questionIndex: state.currentQuestionIndex,
+    totalQuestions: questions.length,
+    selectedOptionId: state.selectedOptionId,
+    texts: texts.quiz,
+    onSelect: selectOption,
+    onNext: goToNextQuestion,
+    onRestart: restart,
+  });
+}
+
+function renderResult() {
+  const result = results[state.resultKey] || results[resultOrder[0]];
+
+  return createResultScreen({
+    result,
+    texts: texts.result,
+    formTexts: texts.form,
+    onRestart: restart,
+  });
+}
+
+function startQuiz() {
+  state = createInitialState();
+  setState({ screen: "quiz" });
+}
+
+function selectOption(optionId) {
+  setState({ selectedOptionId: optionId });
+}
+
+function goToNextQuestion() {
+  const question = questions[state.currentQuestionIndex];
+  const option = question.options.find((item) => item.id === state.selectedOptionId);
+
+  if (!option) {
+    return;
+  }
+
+  const answers = [
+    ...state.answers.filter((answer) => answer.questionId !== question.id),
+    {
+      questionId: question.id,
+      optionId: option.id,
+      label: option.label,
+      scores: option.scores,
+    },
+  ];
+
+  if (state.currentQuestionIndex === questions.length - 1) {
+    setState({
+      screen: "result",
+      answers,
+      resultKey: calculateResultKey(answers),
+      selectedOptionId: null,
+    });
+    return;
+  }
+
+  setState({
+    answers,
+    currentQuestionIndex: state.currentQuestionIndex + 1,
+    selectedOptionId: null,
+  });
+}
+
+function calculateResultKey(answers) {
+  const scores = Object.fromEntries(resultOrder.map((key) => [key, 0]));
+
+  answers.forEach((answer) => {
+    Object.entries(answer.scores).forEach(([key, value]) => {
+      scores[key] = (scores[key] || 0) + value;
+    });
+  });
+
+  return resultOrder.reduce((bestKey, key) => {
+    return scores[key] > scores[bestKey] ? key : bestKey;
+  }, resultOrder[0]);
+}
+
+function restart() {
+  state = createInitialState();
+  render();
+}
+
+render();

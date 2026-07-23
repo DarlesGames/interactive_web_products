@@ -1,0 +1,68 @@
+[
+  {
+    "id": "web-solution-quiz-v1",
+    "title": "Квиз-подборщик веб-решения — версия 1",
+    "folder": "00_interactive-web-solution-quiz-v1.0",
+    "category": "quizzes",
+    "categoryTitle": "Квизы и подборщики",
+    "description": "Первая демонстрационная версия квиза, помогающего определить подходящий формат веб-продукта.",
+    "status": "Демо",
+    "order": 10,
+    "featured": true
+  },
+  {
+    "id": "web-solution-quiz-v2",
+    "title": "Квиз-подборщик веб-решения — версия 2",
+    "folder": "00_interactive-web-solution-quiz-v2.0",
+    "category": "quizzes",
+    "categoryTitle": "Квизы и подборщики",
+    "description": "Вторая демонстрационная версия квиза для подбора подходящего веб-продукта.",
+    "status": "Демо",
+    "order": 20,
+    "featured": true
+  },
+  {
+    "id": "standard-quiz-diagnostic",
+    "title": "Классический квиз по веб-продуктам",
+    "folder": "02_standart_quiz__diagnostic",
+    "category": "quizzes",
+    "categoryTitle": "Квизы и подборщики",
+    "description": "Классический диагностический квиз, который помогает выбрать подходящий формат веб-продукта.",
+    "status": "Демо",
+    "order": 30,
+    "featured": false
+  },
+  {
+    "id": "magic-quiz-diagnostic",
+    "title": "Магический квиз по веб-продуктам",
+    "folder": "03_magic_quiz_diagnostic",
+    "category": "quizzes",
+    "categoryTitle": "Квизы и подборщики",
+    "description": "Волшебная версия диагностического квиза в стилистике Darles Games.",
+    "status": "Демо",
+    "order": 40,
+    "featured": false
+  },
+  {
+    "id": "catch-discount",
+    "title": "Поймай скидку!",
+    "folder": "04_catch_discount",
+    "category": "promo-games",
+    "categoryTitle": "Промо-мини-игры",
+    "description": "Короткая мини-игра для получения скидки, промокода, бонуса или другого вознаграждения.",
+    "status": "Демо",
+    "order": 50,
+    "featured": true
+  },
+  {
+    "id": "wedding-greeting",
+    "title": "Свадебное поздравление",
+    "folder": "creeting_cards",
+    "category": "greetings",
+    "categoryTitle": "Поздравления и приглашения",
+    "description": "Интерактивное свадебное поздравление, которое можно персонализировать под конкретную пару.",
+    "status": "Демо",
+    "order": 60,
+    "featured": true
+  }
+]

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Библиотека интерактивных HTML5-демо Darles Games: квизы, промо-игры и поздравления.">
+  <meta name="theme-color" content="#17142d">
+  <title>Интерактивные веб-продукты — Darles Games</title>
+  <link rel="stylesheet" href="./catalog/catalog.css">
+  <script src="./catalog/catalog.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Перейти к каталогу</a>
+
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Darles Games — главная каталога">
+      <span class="brand-mark" aria-hidden="true">DG</span>
+      <span>Darles Games</span>
+    </a>
+    <a class="header-link" href="https://vk.ru/darlesgames" target="_blank" rel="noopener noreferrer">
+      О проекте <span aria-hidden="true">↗</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Интерактивная библиотека</p>
+        <h1 id="hero-title">Небольшие веб-продукты с большим эффектом</h1>
+        <p class="hero-text">
+          Квизы, игровые механики и особенные страницы Darles Games — каждое демо
+          доступно по отдельной постоянной ссылке.
+        </p>
+        <a class="primary-link" href="#catalog">Смотреть продукты</a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true">
+        <span class="orbit-core">6</span>
+        <span class="orbit-label">демо</span>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Коллекция</p>
+          <h2 id="catalog-title">Выберите формат</h2>
+        </div>
+        <p class="section-note">Все демо открываются в новой вкладке.</p>
+      </div>
+
+      <div id="catalog-content" aria-live="polite">
+        <p class="loading">Загружаем продукты…</p>
+      </div>
+      <noscript>
+        <p class="catalog-message">Для загрузки каталога необходимо включить JavaScript.</p>
+      </noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Darles Games</strong>
+      <p>Интерактивные решения для вовлечения аудитории.</p>
+    </div>
+    <p class="copyright">
+      © 2026 Алексей Спирин. Опубликовано под брендом Darles Games.<br>
+      Все права защищены.
+    </p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta id="themeColorMeta" name="theme-color" content="#130d2b">
+    <meta id="descriptionMeta" name="description" content="Поймай магические бонусы и получи промокод.">
+    <title>Поймай скидку</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="game-shell" id="gameShell" aria-label="Мини-игра «Поймай скидку»">
+      <div class="game-frame" id="gameFrame">
+        <canvas id="gameCanvas" width="360" height="640" aria-label="Игровое поле"></canvas>
+
+        <button class="sound-button" id="soundButton" type="button" aria-label="Выключить звук" aria-pressed="true">
+          <span class="sound-button__icon" id="soundIcon" aria-hidden="true">♪</span>
+          <span class="sound-button__label" id="soundLabel">Звук</span>
+        </button>
+
+        <section class="hud is-hidden" id="hud" aria-label="Статистика игры">
+          <div class="hud__row">
+            <div class="hud__item">
+              <span class="hud__label" id="scoreLabel">Очки</span>
+              <strong class="hud__value" id="scoreValue">0 / 100</strong>
+            </div>
+            <div class="hud__item hud__item--lives">
+              <span class="hud__label" id="livesLabel">Попытки</span>
+              <strong class="hud__hearts" id="livesValue" aria-label="Осталось 3 попытки">♥ ♥ ♥</strong>
+            </div>
+          </div>
+          <div class="progress" aria-label="Прогресс до скидки">
+            <div class="progress__head">
+              <span id="progressLabel">Магия скидки</span>
+              <strong id="progressValue">0%</strong>
+            </div>
+            <div class="progress__track">
+              <div class="progress__fill" id="progressFill"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen screen--start is-active" id="startScreen" aria-labelledby="gameTitle">
+          <div class="screen__content">
+            <div class="magic-emblem" aria-hidden="true">
+              <span class="magic-emblem__star">✦</span>
+            </div>
+            <p class="eyebrow" id="startEyebrow">Магическая мини-игра</p>
+            <h1 id="gameTitle"><span id="startTitleLine1">Поймай</span><br><span id="startTitleLine2">скидку</span></h1>
+            <p class="screen__text" id="startDescription">Лови магические бонусы<br>и получи промокод</p>
+            <button class="button button--primary" id="playButton" type="button">Играть</button>
+            <p class="controls-hint">
+              <span class="controls-hint__keys" aria-hidden="true">↔</span>
+              <span id="controlsHintText">Веди мышью или пальцем</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="screen screen--result" id="winScreen" aria-labelledby="winTitle">
+          <div class="screen__content">
+            <div class="result-icon result-icon--win" aria-hidden="true">★</div>
+            <p class="eyebrow" id="winEyebrow">Победа</p>
+            <h2 id="winTitle"><span id="winTitleLine1">Скидка</span><br><span id="winTitleLine2">поймана!</span></h2>
+            <p class="screen__text" id="winDescription">Твой магический промокод</p>
+            <div class="promo-code" aria-label="Промокод MAGIC10">
+              <span id="promoCodeValue">MAGIC10</span>
+            </div>
+            <button class="button button--primary" id="copyButton" type="button">Скопировать промокод</button>
+            <button class="button button--secondary" id="playAgainButton" type="button">Играть снова</button>
+            <p class="copy-status" id="copyStatus" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <section class="screen screen--result" id="loseScreen" aria-labelledby="loseTitle">
+          <div class="screen__content">
+            <div class="result-icon result-icon--lose" aria-hidden="true">☾</div>
+            <p class="eyebrow" id="loseEyebrow">Попытки закончились</p>
+            <h2 id="loseTitle"><span id="loseTitleLine1">Скидка</span><br><span id="loseTitleLine2">ускользнула</span></h2>
+            <p class="screen__text" id="loseDescription">Не сдавайся — магия любит настойчивых</p>
+            <button class="button button--primary" id="retryButton" type="button">Попробовать снова</button>
+          </div>
+        </section>
+
+      </div>
+
+      <p class="page-note" id="pageNote">Лови бонусы · Избегай проклятых предметов · Набери 100 очков</p>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

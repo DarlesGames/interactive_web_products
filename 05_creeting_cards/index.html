@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Илларион и Элиза</title>
+  <meta name="description" content="Свадебное поздравление для Иллариона и Элизы" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-live="polite">
+    <div class="grain"></div>
+    <div class="floaters" aria-hidden="true"></div>
+
+    <button class="sound-toggle" type="button" aria-label="Включить или выключить звук">звук: вкл</button>
+
+    <section class="screen is-active" data-screen="0">
+      <div class="card intro-card colorful-card">
+        <div class="icon-rain" aria-hidden="true">♡ ✦ ★ ☀</div>
+        <h1>Илларион и Элиза</h1>
+        <p class="lead">
+          Поздравляем вас с днём свадьбы!
+        </p>
+        <p class="soft-text">
+          Желаем вам любви, взаимного уважения, семейного счастья и много радостных дней вместе.
+        </p>
+        <button class="primary-btn" type="button" data-next>Открыть поздравление</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+      <div class="card guitar-card colorful-card">
+        <div class="icon-rain" aria-hidden="true">♪ ♡ ✦ ★</div>
+        <p class="hint">Нажмите на все струны, чтобы открыть пожелания.</p>
+
+        <div class="guitar" role="group" aria-label="Шесть струн с пожеланиями">
+          <button class="string" type="button" data-wish="Крепкой любви и взаимного уважения." data-note="196"><span></span></button>
+          <button class="string" type="button" data-wish="Доверия, терпения и понимания." data-note="247"><span></span></button>
+          <button class="string" type="button" data-wish="Уюта, тепла и достатка в доме." data-note="294"><span></span></button>
+          <button class="string" type="button" data-wish="Поддержки друг друга в любой ситуации." data-note="330"><span></span></button>
+          <button class="string" type="button" data-wish="Общих целей и счастливых событий." data-note="392"><span></span></button>
+          <button class="string" type="button" data-wish="Много радости, улыбок и добрых воспоминаний." data-note="494"><span></span></button>
+        </div>
+
+        <div class="wish-box">
+          <p class="wish-placeholder">Пожелания появятся здесь.</p>
+          <ul class="wish-list"></ul>
+        </div>
+
+        <button class="primary-btn is-hidden" type="button" data-next id="stringsNext">Дальше</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+      <div class="card poem-card colorful-card">
+        <div class="icon-rain" aria-hidden="true">❀ ♡ ✦ ☀</div>
+        <div class="typewriter" id="poemText"></div>
+        <button class="ghost-btn" type="button" id="skipPoem">Показать сразу</button>
+        <button class="primary-btn is-hidden" type="button" data-next id="poemNext">Дальше</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+      <div class="card split-card colorful-card">
+        <div class="icon-rain small" aria-hidden="true">★ ♡</div>
+        <div class="photo-wrap photo-groom">
+          <img src="assets/groom_silhouette.png" alt="Силуэт жениха" />
+        </div>
+        <div>
+          <h2>Илларион</h2>
+          <p>
+            Поздравляем тебя с этим важным днём!
+          </p>
+          <p>
+            Желаем быть надёжной опорой для своей семьи, беречь любовь и всегда поддерживать Элизу.
+          </p>
+          <p>
+            Пусть ваш дом будет наполнен теплом, спокойствием и радостью.
+          </p>
+        </div>
+        <button class="primary-btn" type="button" data-next>Дальше</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+      <div class="card split-card reverse colorful-card">
+        <div class="icon-rain small" aria-hidden="true">✦ ❀</div>
+        <div class="photo-wrap photo-bride">
+          <img src="assets/bride_silhouette.png" alt="Силуэт невесты" />
+        </div>
+        <div>
+          <h2>Элиза</h2>
+          <p>
+            Поздравляем тебя с днём свадьбы!
+          </p>
+          <p>
+            Желаем любви, семейного счастья, душевного тепла и исполнения общих мечтаний.
+          </p>
+          <p>
+            Пусть рядом всегда будет забота, понимание и поддержка Иллариона.
+          </p>
+        </div>
+        <button class="primary-btn" type="button" data-next>Дальше</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+      <div class="card tie-card colorful-card">
+        <div class="icon-rain" aria-hidden="true">🎀 ✦ ♡</div>
+        <p class="eyebrow">Свадебный тост</p>
+        <p>
+          За вашу новую семью! Желаем вам любить и уважать друг друга, вместе встречать радостные события и легко справляться с трудностями. Пусть ваш союз будет крепким и счастливым.
+        </p>
+        <button class="primary-btn" type="button" data-next>Дальше</button>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+      <div class="card final-card colorful-card">
+        <div class="icon-rain" aria-hidden="true">♡ ✦ ❀ ♪ ☀</div>
+        <div class="photo-wrap photo-final">
+          <img src="assets/couple_silhouette.png" alt="Силуэты жениха и невесты вместе" />
+        </div>
+        <p class="eyebrow">Илларион и Элиза</p>
+        <h2>Счастья вашей семье!</h2>
+        <p class="final-text">
+          Пусть ваша совместная жизнь будет долгой, спокойной и счастливой. Берегите друг друга, чаще радуйтесь вместе и сохраняйте любовь на долгие годы.
+        </p>
+        <p class="signature">С днём свадьбы!</p>
+        <div class="button-row">
+          <button class="ghost-btn" type="button" id="restartBtn">Сначала</button>
+          <button class="primary-btn" type="button" id="confettiBtn">Ещё немного радости</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="progress" aria-hidden="true"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

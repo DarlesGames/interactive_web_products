@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="magic">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#17131d">
+    <meta name="description" content="Интерактивный подборщик веб-решения Darles Games: формат, срок и предварительная стоимость.">
+    <meta property="og:title" content="Подбор веб-решения — Darles Games">
+    <meta property="og:description" content="Ответьте на 8 коротких вопросов и получите подходящий формат, срок и цену.">
+    <meta property="og:type" content="website">
+    <title>Подбор веб-решения — Darles Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#app">К содержанию</a>
+
+    <div class="app-shell">
+      <header class="site-header">
+        <button class="brand" id="brand-home" type="button" aria-label="Darles Games — на стартовый экран">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-mark__d">D</span>
+            <span class="brand-mark__spark"></span>
+          </span>
+          <span class="brand-copy">
+            <strong>Darles Games</strong>
+            <small id="brand-subtitle">Interactive web solutions</small>
+          </span>
+        </button>
+
+        <div class="header-controls">
+          <fieldset class="theme-picker" id="theme-picker">
+            <legend id="theme-legend">Стиль демо</legend>
+            <button type="button" data-theme-choice="magic">Magic</button>
+            <button type="button" data-theme-choice="business">Деловой</button>
+            <button type="button" data-theme-choice="bright">Яркий</button>
+          </fieldset>
+
+          <div class="language-picker" id="language-picker" role="group" aria-label="Язык">
+            <button type="button" data-language="ru">RU</button>
+            <button type="button" data-language="en">EN</button>
+          </div>
+        </div>
+      </header>
+
+      <main id="app" tabindex="-1" aria-live="polite"></main>
+
+      <footer class="site-footer">
+        <span>Darles Games</span>
+        <span aria-hidden="true">◆</span>
+        <span id="footer-copy">Индивидуальные интерактивные веб-решения</span>
+      </footer>
+    </div>
+
+    <dialog class="examples-dialog" id="examples-dialog" aria-labelledby="examples-title">
+      <div class="dialog-head">
+        <div>
+          <p class="eyebrow" id="examples-eyebrow">Что можно создать</p>
+          <h2 id="examples-title">Пять понятных форматов</h2>
+        </div>
+        <button class="icon-button" id="examples-close" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div class="examples-grid" id="examples-grid"></div>
+      <button class="primary-button dialog-start" id="examples-start" type="button">Начать подбор</button>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

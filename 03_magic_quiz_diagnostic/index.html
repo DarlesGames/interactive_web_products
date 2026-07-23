@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HTML5-квиз для диагностики и заявки через Google Форму."
+    />
+    <title>Квиз-диагностика</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar" aria-label="Шапка продукта">
+        <nav class="developer-contacts" aria-label="Контакты разработчика">
+          <a
+            class="contact-button"
+            href="https://t.me/ProgrammerLeks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Telegram
+          </a>
+          <a
+            class="contact-button"
+            href="https://vk.ru/im/convo/-224400042?entrypoint=community_page&amp;tab=all"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VK
+          </a>
+        </nav>
+      </header>
+
+      <main id="app" class="app" aria-live="polite"></main>
+
+      <footer class="footer">
+        После результата можно открыть форму заявки или связаться с разработчиком.
+      </footer>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
