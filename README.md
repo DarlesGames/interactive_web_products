@@ -4,19 +4,19 @@ A public library of standalone bilingual HTML5 demos: quizzes, solution finders,
 
 ## Product catalog
 
-- [Web solution quiz — version 1](https://darlesgames.github.io/interactive-web-products/00_interactive-web-solution-quiz-v1.0/) — the first demo of a quiz that helps identify the right web product format.
+- [Web solution quiz — version 1](https://darlesgames.github.io/interactive_web_products/00_interactive-web-solution-quiz-v1.0/) — the first demo of a quiz that helps identify the right web product format.
 
-- [Web solution quiz — version 2](https://darlesgames.github.io/interactive-web-products/01_interactive-web-solution-quiz-v2.0/) — an updated solution finder with several visual themes, timeline and price estimates, and a personalized recommendation.
+- [Web solution quiz — version 2](https://darlesgames.github.io/interactive_web_products/01_interactive-web-solution-quiz-v2.0/) — an updated solution finder with several visual themes, timeline and price estimates, and a personalized recommendation.
 
-- [Classic web product quiz](https://darlesgames.github.io/interactive-web-products/02_standart_quiz__diagnostic/) — a classic diagnostic quiz that helps select a suitable interactive product format.
+- [Classic web product quiz](https://darlesgames.github.io/interactive_web_products/02_standart_quiz__diagnostic/) — a classic diagnostic quiz that helps select a suitable interactive product format.
 
-- [Magic web product quiz](https://darlesgames.github.io/interactive-web-products/03_magic_quiz_diagnostic/) — a magical variation of the diagnostic quiz presented in the Darles Games style.
+- [Magic web product quiz](https://darlesgames.github.io/interactive-web_products/03_magic_quiz_diagnostic/) — a magical variation of the diagnostic quiz presented in the Darles Games style.
 
-- [Catch the discount!](https://darlesgames.github.io/interactive-web-products/04_catch_discount/) — a short promo mini-game for earning a discount, promo code, bonus, or another reward.
+- [Catch the discount!](https://darlesgames.github.io/interactive_web_products/04_catch_discount/) — a short promo mini-game for earning a discount, promo code, bonus, or another reward.
 
-- [Wedding greeting](https://darlesgames.github.io/interactive-web-products/05_creeting_cards/) — an interactive wedding greeting with wishes, sound, animation, and personalized content.
+- [Wedding greeting](https://darlesgames.github.io/interactive_web_products/05_creeting_cards/) — an interactive wedding greeting with wishes, sound, animation, and personalized content.
 
-Open the [complete Darles Games product catalog](https://darlesgames.github.io/interactive-web-products/) to browse and filter all demos.
+Open the [complete Darles Games product catalog](https://darlesgames.github.io/interactive_web_products/) to browse and filter all demos.
 
 ## Languages
 
