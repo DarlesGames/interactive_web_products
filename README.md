@@ -10,7 +10,7 @@ A public library of standalone bilingual HTML5 demos: quizzes, solution finders,
 
 - [Classic web product quiz](https://darlesgames.github.io/interactive_web_products/02_standart_quiz__diagnostic/) — a classic diagnostic quiz that helps select a suitable interactive product format.
 
-- [Magic web product quiz](https://darlesgames.github.io/interactive-web_products/03_magic_quiz_diagnostic/) — a magical variation of the diagnostic quiz presented in the Darles Games style.
+- [Magic web product quiz](https://darlesgames.github.io/interactive_web_products/03_magic_quiz_diagnostic/) — a magical variation of the diagnostic quiz presented in the Darles Games style.
 
 - [Catch the discount!](https://darlesgames.github.io/interactive_web_products/04_catch_discount/) — a short promo mini-game for earning a discount, promo code, bonus, or another reward.
 
