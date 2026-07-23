@@ -24,7 +24,7 @@
 
   const restored = restoreState();
   const state = {
-    language: restored.language || detectLanguage(),
+    language: detectLanguage(),
     theme: restored.theme || config.product.defaultTheme,
     screen: restored.screen || "start",
     currentIndex: Number.isInteger(restored.currentIndex) ? restored.currentIndex : 0,
@@ -38,6 +38,10 @@
   installEmbedHeightBridge();
 
   function detectLanguage() {
+    const queryLanguage = new URLSearchParams(location.search).get("lang");
+    if (queryLanguage === "ru" || queryLanguage === "en") return queryLanguage;
+    const storedLanguage = localStorage.getItem("darlesLanguage");
+    if (storedLanguage === "ru" || storedLanguage === "en") return storedLanguage;
     return String(navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
   }
 
@@ -108,6 +112,7 @@
       const button = event.target.closest("[data-language]");
       if (!button) return;
       state.language = button.dataset.language;
+      localStorage.setItem("darlesLanguage", state.language);
       saveState();
       renderChrome();
       renderScreen(false);

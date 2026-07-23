@@ -1,53 +1,42 @@
-# Передача HTML5-квиза клиенту
+# Magic HTML5 Quiz Client Handoff
 
-## Назначение
+## Purpose
 
-Это статический квиз-диагностика. Пользователь отвечает на вопросы, получает
-подходящий результат и может открыть Google Форму для заявки.
+This is a static diagnostic quiz with a magical Darles Games presentation. A visitor answers questions, receives a suitable result, and can open a Google Form to submit a request.
 
-## Быстрый запуск
+## Quick start
 
-1. Откройте папку проекта.
-2. Запустите локальный сервер:
+1. Open the product folder.
+2. Start a local server:
 
 ```bash
 python -m http.server 5173
 ```
 
-3. Откройте `http://localhost:5173` в браузере.
+3. Open `http://localhost:5173` in a browser.
 
-## Что можно менять без программиста
+## Content that can be edited without a developer
 
-- Вопросы и варианты ответов: `src/data/questions.js`.
-- Результаты: `src/data/results.js`.
-- Тексты кнопок, формы и стартового экрана: `src/data/texts.js`.
-- Цвета и внешний вид: `src/css/style.css`.
-- Ссылки Telegram и VK в шапке: `index.html`.
+- Russian questions and options: `src/data/questions.js`
+- Russian results: `src/data/results.js`
+- Russian interface copy: `src/data/texts.js`
+- English localization: `src/data/localization.en.js`
+- Magic guide component: `src/components/magicGuide.js`
+- Colors and appearance: `src/css/style.css`
+- Header contact links: `index.html`
 
-## Как заменить тематику под клиента
+## Adapting the quiz for a client
 
-1. Измените заголовок и описание на стартовом экране в `src/data/texts.js`.
-2. Замените вопросы в `src/data/questions.js`.
-3. Проверьте, что категории в `scores` совпадают с результатами.
-4. Обновите результаты в `src/data/results.js`.
-5. Пройдите квиз несколько раз и проверьте, что результат выглядит логично.
+Update the start copy, questions, result copy, and score categories. Complete the quiz several times in Russian and English and confirm that the recommendations remain logical.
 
-## Заявка
+## Request form
 
-Кнопка на финальном экране берет текст из `texts.form.submitButton`.
-Ссылка на Google Форму хранится в `texts.form.formUrl`.
+The final button uses `texts.form.submitButton`. The Google Form URL is stored in `texts.form.formUrl`. Configure real contact and privacy information before production use.
 
-Если ссылка пустая, пользователь увидит резервные контакты:
+## Pre-publication checklist
 
-- Telegram: `https://t.me/ProgrammerLeks`
-- Почта: `darlesgames@yandex.ru`
-- VK: `https://vk.ru/darlesgames`
-
-## Проверка перед публикацией
-
-- Квиз проходит от старта до результата.
-- На мобильном экране нет горизонтальной прокрутки.
-- Все тексты относятся к бизнесу клиента.
-- Кнопка заявки открывает правильную Google Форму.
-- Подключена политика обработки персональных данных, если форма собирает
-  реальные контакты.
+- The full flow works from start to result.
+- Both `?lang=ru` and `?lang=en` show the correct language.
+- Mobile screens have no horizontal overflow.
+- The request button opens the correct Google Form.
+- A privacy policy is available if the form collects real personal data.

@@ -1,117 +1,39 @@
-# HTML5-квиз для заявки через Google Форму
+# HTML5 Diagnostic and Lead-Generation Quiz
 
-Статический квиз-диагностика для онлайн-школ, экспертов, курсов, детских
-центров и малого бизнеса. Пользователь проходит вопросы, получает результат и
-может открыть Google Форму для заявки.
+A static diagnostic quiz for online schools, experts, courses, children’s centers, and small businesses. Visitors answer questions, receive a result, and can open a Google Form.
 
-## Что внутри
+## Features
 
-- Стартовый экран.
-- Вопросы с прогресс-баром.
-- Подсчет результата по категориям.
-- Экран результата с коротким объяснением.
-- Кнопка "Оставить заявку".
-- Открытие Google Формы в новой вкладке.
-- Резервные контакты, если ссылка формы не указана.
-- Кнопка "Пройти заново".
-- Отдельные JS-файлы для вопросов, результатов и текстов.
+- Start, quiz, and result screens.
+- Progress indicator and score-based results.
+- Google Form request button and fallback contacts.
+- Restart flow.
+- Russian and English localization through `?lang=ru|en`.
+- Separate data files for questions, results, and interface copy.
 
-## Как запустить
-
-Откройте папку проекта в терминале и запустите локальный статический сервер:
-
-```bash
-python -m http.server 5173
-```
-
-Если в Windows доступна команда `py`, можно использовать:
+## Running locally
 
 ```bash
 py -m http.server 5173
 ```
 
-После запуска откройте в браузере:
+Open `http://localhost:5173`. ES modules require an HTTP server.
 
-```text
-http://localhost:5173
-```
+## Editing
 
-Для ES-модулей лучше использовать локальный сервер, а не открывать `index.html`
-двойным кликом.
+- Russian questions: `src/data/questions.js`
+- Russian results: `src/data/results.js`
+- Russian interface copy and form URL: `src/data/texts.js`
+- English localization: `src/data/localization.en.js`
+- Layout and appearance: `src/css/`
+- Header contacts: `index.html`
 
-## Как менять вопросы
+Score keys in questions must match result keys in `src/data/results.js`. If `texts.form.formUrl` is empty, fallback contacts are displayed.
 
-Файл: `src/data/questions.js`
+## Deployment
 
-Каждый вопрос содержит:
+Upload the complete product folder to any static host, including GitHub Pages, Netlify, Vercel, or a conventional FTP host.
 
-- `id` - технический идентификатор.
-- `title` - текст вопроса.
-- `hint` - пояснение под вопросом.
-- `options` - варианты ответа.
-- `scores` - баллы по категориям результата.
+## Limitations
 
-Ключи в `scores` должны совпадать с ключами результатов в
-`src/data/results.js`.
-
-## Как менять результаты
-
-Файл: `src/data/results.js`
-
-Для каждого результата можно изменить заголовок, короткое объяснение,
-рекомендацию и первые шаги. Порядок в `resultOrder` используется для случая,
-когда несколько результатов набрали одинаковое количество баллов.
-
-## Как менять тексты и ссылку формы
-
-Файл: `src/data/texts.js`
-
-Основные поля блока `form`:
-
-- `submitButton` - текст кнопки заявки.
-- `formUrl` - ссылка на Google Форму.
-- `openNote` - пояснение под кнопкой.
-- `contactNotice` - текст с контактами перед кнопкой.
-- `telegram`, `email`, `vk` - резервные контакты.
-
-Если `formUrl` оставить пустым, на финальном экране будут показаны резервные
-контакты.
-
-## Логотип и контакты
-
-Логотип берется из файла `DG_logo.png` в корне проекта. Клик по логотипу ведет
-на страницу Darles Games во ВКонтакте.
-
-Кнопки Telegram и VK в шапке находятся в `index.html`.
-
-## Где хранить ассеты
-
-Статичные файлы можно класть в:
-
-- `public/assets/images/`
-- `public/assets/audio/`
-- `public/assets/fonts/`
-
-После добавления ассетов подключайте их относительными путями из HTML или CSS.
-
-## Деплой
-
-Проект можно разместить на любом статическом хостинге:
-
-- Timeweb Cloud Static Sites.
-- Netlify.
-- Vercel static hosting.
-- GitHub Pages.
-- Обычный хостинг с загрузкой файлов по FTP.
-
-Загрузите `index.html`, `DG_logo.png`, папки `src/`, `public/`, `docs/` и
-`README.md`.
-
-## Ограничения
-
-- Нет backend.
-- Нет аналитики и пикселей.
-- Нет защиты от спама.
-- Google Форма открывается в новой вкладке.
-- Для публикации с реальными контактами нужна политика обработки персональных
-  данных.
+There is no backend, analytics, spam protection, or built-in privacy-policy flow. A privacy policy is required when a production form collects personal data.

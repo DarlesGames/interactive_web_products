@@ -5,6 +5,7 @@ export function createResultScreen({
   result,
   texts,
   formTexts,
+  resultAria,
   onRestart,
 }) {
   const section = document.createElement("section");
@@ -25,7 +26,7 @@ export function createResultScreen({
   const guide = createMagicGuide({
     heading: result.title,
     text: result.short,
-    ariaLabel: "Результат теста",
+    ariaLabel: resultAria,
   });
 
   const blocks = document.createElement("div");

@@ -1,22 +1,22 @@
 # Darles Games — Interactive Web Solution Quiz v2
 
-Статический прототип без npm и внешних зависимостей.
+A static prototype with no npm packages or external dependencies.
 
-## Запуск
+## Running locally
 
-Откройте `index.html` в браузере. Для тестирования через локальный сервер можно использовать любой простой HTTP-сервер, но это не обязательно.
+Open `index.html` in a browser or serve the parent repository through a simple static HTTP server.
 
-## Что изменено в v2
+## Features
 
-- декоративное перо / ручка / карандаш вынесены за границы текстовой области;
-- увеличены основной текст, вопросы, ответы и карточка результата;
-- кнопка «Обсудить проект» заменена отдельными кнопками Telegram и VK;
-- почта указана обычной строкой: `DarlesGames@yandex.ru`;
-- сохранены три темы, RU/EN и отдельные цены RUB/USD;
-- состояние хранится в `sessionStorage`;
-- результат можно скопировать.
+- Large, readable questions, answers, and result cards.
+- Separate Telegram and VK contact buttons.
+- Three visual themes.
+- Russian and English localization with separate RUB and USD estimates.
+- Language inheritance from the catalog through `?lang=ru|en`.
+- Session state stored in `sessionStorage`.
+- Copyable results.
 
-## Контакты
+## Contacts
 
 - Telegram: https://t.me/ProgrammerLeks
 - VK: https://vk.ru/im/convo/-224400042?entrypoint=community_page&tab=all

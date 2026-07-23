@@ -1,27 +1,27 @@
-# PRODUCT-001 — интерактивный подборщик
+# PRODUCT-001 — Interactive Solution Finder
 
-Статический прототип Darles Games без npm, сервера и базы данных.
+A static Darles Games prototype with no npm packages, backend, or database.
 
-## Запуск
+## Running locally
 
-Откройте `index.html` в браузере или загрузите содержимое папки на любой статический хостинг.
+Open `index.html` in a browser or upload the folder to any static host.
 
-## Что уже работает
+## Features
 
-- восемь вопросов и возврат назад;
-- три темы: Darles Magic, деловая и яркая;
-- русский и английский языки;
-- цены в RUB для русского и USD для английского;
-- рекомендация одного из пяти форматов;
-- дополнительный результат при близких баллах;
-- расчёт цены, срока и соответствия бюджету;
-- Telegram-сообщение с результатом;
-- сохранение прохождения в рамках вкладки;
-- адаптация для телефона и `iframe`.
+- Eight questions with back navigation.
+- Three themes: Darles Magic, Business, and Bright.
+- Russian and English localization inherited through `?lang=ru|en`.
+- RUB estimates for Russian and USD estimates for English.
+- Recommendations across five product formats.
+- A secondary recommendation when scores are close.
+- Price, timeline, and budget-fit estimates.
+- A prepared Telegram result message.
+- Session progress storage.
+- Mobile and `iframe` support.
 
-## Перед публикацией
+## Before publishing
 
-В `config.js` укажите публичное имя Telegram без символа `@`:
+Set the public Telegram username in `config.js` without the `@` character:
 
 ```js
 contacts: {
@@ -29,6 +29,4 @@ contacts: {
 }
 ```
 
-Пока имя не указано, кнопка откроет стандартное окно отправки подготовленного сообщения в Telegram.
-
-Все вопросы, результаты, веса, сроки и цены находятся в `config.js`. Интерфейс — в `app.js`, оформление — в `styles.css`.
+Questions, results, weights, timelines, prices, and localized interface copy are stored in `config.js`. Application logic is in `app.js`, and styles are in `styles.css`.

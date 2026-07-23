@@ -1,136 +1,38 @@
-# Поймай скидку — коммерческий HTML5-шаблон
+# Catch the Discount — Commercial HTML5 Template
 
-## 1. Что это за игра
+An adaptive HTML5 Canvas promo game. The player controls a wizard, catches bonuses, reaches the target score, and receives a promo code.
 
-«Поймай скидку» — адаптивная промо-игра на HTML5 Canvas. Игрок управляет магом, ловит бонусы, набирает целевое количество очков и получает промокод.
+The template suits shops, online courses, cafés, delivery services, salons, marketplaces, giveaways, and seasonal campaigns.
 
-Шаблон подходит для магазина, онлайн-курса, кафе, доставки, салона, маркетплейса, розыгрыша или сезонной акции.
+## Features
 
-Особенности:
+- No npm packages, build process, or external libraries.
+- Mouse, touch, and keyboard controls.
+- Start, game, victory, and defeat screens.
+- Web Audio API sound without audio files.
+- Russian and English localization through `?lang=ru|en`.
+- Client settings in the `CONFIG` object in `main.js`.
 
-- без npm, сборщика и внешних библиотек;
-- запускается локально через `index.html`;
-- управление мышью, пальцем и клавиатурой;
-- четыре экрана: старт, игра, победа и поражение;
-- Web Audio API без звуковых файлов;
-- все основные клиентские настройки находятся в объекте `CONFIG`.
+## Running locally
 
-## 2. Как запустить
+Open `index.html` in a modern browser or serve the parent repository through a static HTTP server.
 
-Откройте `index.html` в современном браузере.
+## Configuration
 
-Локальный сервер и доступ к интернету не требуются. Для публикации достаточно загрузить четыре файла на обычный статический хостинг.
-
-## 3. Как изменить промокод
-
-Откройте `main.js` и найдите объект `CONFIG` в начале файла:
+Change the promo code, target score, and attempts in `main.js`:
 
 ```js
 promoCode: "MAGIC10",
-```
-
-Замените `MAGIC10` на код клиента. Значение автоматически обновится на экране победы и в кнопке копирования.
-
-## 4. Как изменить целевые очки
-
-В объекте `CONFIG` измените:
-
-```js
 targetScore: 100,
-```
-
-Шкала прогресса, HUD, условие победы и нижняя подсказка обновятся автоматически.
-
-Количество попыток задаётся рядом:
-
-```js
 startingLives: 3,
 ```
 
-## 5. Как изменить тексты
+Localized interface copy is stored in `LOCALIZATION`. Colors are defined in `CONFIG.colors`; item values, colors, speed, and spawn weights are in `CONFIG.items`.
 
-Все пользовательские тексты находятся в секции:
+## Files
 
-```js
-texts: {
-  start: { ... },
-  win: { ... },
-  lose: { ... }
-}
-```
+- `index.html` — semantic screen, HUD, and button markup.
+- `style.css` — responsive layout and animation.
+- `main.js` — localization, configuration, game loop, Canvas graphics, controls, effects, and sound.
 
-Здесь можно изменить:
-
-- заголовок и описание стартового экрана;
-- подписи HUD;
-- названия кнопок;
-- экран победы и поражения;
-- сообщение после копирования;
-- подсказку управления;
-- подписи при получении урона.
-
-Перенос строки в описании задаётся через `\n`.
-
-Название вкладки браузера и игры:
-
-```js
-gameName: "Поймай скидку",
-```
-
-## 6. Как изменить цвета
-
-Основная тема находится в `CONFIG.colors`:
-
-```js
-colors: {
-  violet: "#8f58ff",
-  gold: "#ffd763",
-  cyan: "#65cfff",
-  danger: "#ff315f"
-}
-```
-
-Эти значения управляют интерфейсом, фоном, эффектами и персонажем.
-
-Цвет отдельного предмета меняется в `CONFIG.items`:
-
-```js
-coin: {
-  color: "#ffd45f",
-  glow: "#ffbb3d"
-}
-```
-
-## 7. Как адаптировать под клиента
-
-Основные изменения выполняются только в `CONFIG`.
-
-Примеры:
-
-- магазин — монеты, пакеты и купоны;
-- онлайн-курс — книги, дипломы и звёзды;
-- кафе — чашки, десерты и купоны;
-- доставка — посылки и промокоды;
-- салон — косметика, сертификаты и бонусы;
-- маркетплейс — товары, монеты и скидочные карточки.
-
-Баланс настраивается секциями:
-
-- `fall` — скорость падения;
-- `spawn` — частота и количество предметов;
-- `difficulty` — задержка и шанс опасных предметов;
-- `player` — размер и скорость персонажа;
-- `items` — очки, размеры, цвета, скорость и веса появления.
-
-Поле `weight` задаёт относительную частоту предмета. Чем выше значение, тем чаще предмет появляется внутри полезной или вредной группы.
-
-Для полной смены тематики можно заменить функции отрисовки предметов и персонажа в секции Canvas rendering файла `main.js`. Изображения и внешние ассеты для текущей версии не используются.
-
-## 8. Какие файлы за что отвечают
-
-- `index.html` — семантическая разметка экранов, HUD и кнопок.
-- `style.css` — адаптивная компоновка, кнопки, экраны и CSS-анимации.
-- `main.js` — `CONFIG`, игровой цикл, Canvas-графика, управление, эффекты и звук.
-- `README.md` — инструкция по запуску и адаптации.
-
-Базовая логическая сцена — 360×640. Canvas автоматически масштабируется под доступную высоту и ширину экрана.
+The logical scene is 360×640 and scales to the available screen size.

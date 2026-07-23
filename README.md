@@ -1,18 +1,28 @@
-# Darles Games — интерактивные веб-продукты
+# Darles Games — Interactive Web Products
 
-Публичная библиотека автономных HTML5-демо Darles Games. Каталог объединяет квизы и подборщики, промо-мини-игры, интерактивные поздравления и приглашения. Каждый продукт хранится в отдельной корневой папке и доступен по собственному постоянному URL.
+A public library of standalone bilingual HTML5 demos: quizzes, solution finders, promo mini-games, interactive greetings, and invitations.
 
-## Локальный запуск
+## Product catalog
 
-Из корня репозитория выполните:
+- [Web solution quiz — version 1](https://darlesgames.github.io/darles-interactive-web-products/00_interactive-web-solution-quiz-v1.0/) — the first demo of a quiz that helps identify the right web product format.
 
-```powershell
-py -m http.server 8080
-```
+- [Web solution quiz — version 2](https://darlesgames.github.io/darles-interactive-web-products/01_interactive-web-solution-quiz-v2.0/) — an updated solution finder with several visual themes, timeline and price estimates, and a personalized recommendation.
 
-Затем откройте [http://localhost:8080/](http://localhost:8080/). HTTP-сервер необходим для каталога, использующего `fetch`, и продуктов с ES modules.
+- [Classic web product quiz](https://darlesgames.github.io/darles-interactive-web-products/02_standart_quiz__diagnostic/) — a classic diagnostic quiz that helps select a suitable interactive product format.
 
-## Структура
+- [Magic web product quiz](https://darlesgames.github.io/darles-interactive-web-products/03_magic_quiz_diagnostic/) — a magical variation of the diagnostic quiz presented in the Darles Games style.
+
+- [Catch the discount!](https://darlesgames.github.io/darles-interactive-web-products/04_catch_discount/) — a short promo mini-game for earning a discount, promo code, bonus, or another reward.
+
+- [Wedding greeting](https://darlesgames.github.io/darles-interactive-web-products/05_creeting_cards/) — an interactive wedding greeting with wishes, sound, animation, and personalized content.
+
+Open the [complete Darles Games product catalog](https://darlesgames.github.io/darles-interactive-web-products/) to browse and filter all demos.
+
+## Languages
+
+The catalog and every product support Russian and English. The selected language is stored in `localStorage` under `darlesLanguage` and passed to demos through `?lang=ru` or `?lang=en`.
+
+## Repository structure
 
 ```text
 /
@@ -29,28 +39,13 @@ py -m http.server 8080
 └── 05_creeting_cards/
 ```
 
-Карточки формируются из `catalog/products.json`. Поле `folder` должно в точности совпадать с реальным именем папки продукта. Каталог не требует npm, сборки, backend или внешних фреймворков.
+Every product remains standalone and does not depend on files from another product folder. The catalog requires no npm packages, build process, backend, or external framework.
 
-## Публикация на GitHub Pages
 
-1. Опубликуйте репозиторий `darles-interactive-web-products` в организации или аккаунте `darlesgames`.
-2. Отправьте файлы в ветку `main`.
-3. В GitHub откройте **Settings → Pages**.
-4. В разделе **Build and deployment** выберите **Deploy from a branch**.
-5. Укажите ветку **main**, папку **/(root)** и нажмите **Save**.
+## Darles Games Attribution License
 
-После публикации каталог будет доступен по адресу:
+You are free to use, copy, modify, and share materials from this repository. Attribution to Darles Games is appreciated but not required.
 
-```text
-https://darlesgames.github.io/darles-interactive-web-products/
-```
+Third-party libraries, fonts, images, and other components remain subject to their own licenses and notices.
 
-## Добавление продукта
-
-Скопируйте автономную папку с рабочим `index.html` в корень, проверьте её через локальный HTTP-сервер и добавьте запись в `catalog/products.json`. Не переименовывайте существующие папки и не связывайте продукты общими обязательными зависимостями.
-
-## Права
-
-© 2026 Алексей Спирин. Опубликовано под брендом Darles Games. Все права защищены.
-
-Публичное размещение исходного кода предназначено для демонстрации продуктов и не предоставляет разрешения на копирование, распространение, перепродажу или использование проектов и их частей в других коммерческих продуктах. Сторонние компоненты сохраняют собственные лицензии.
+The materials are provided “as is”, without warranty.

@@ -1,117 +1,34 @@
-# HTML5-квиз для заявки через Google Форму
+# Magic HTML5 Diagnostic Quiz
 
-Статический квиз-диагностика для онлайн-школ, экспертов, курсов, детских
-центров и малого бизнеса. Пользователь проходит вопросы, получает результат и
-может открыть Google Форму для заявки.
+A magical Darles Games variation of the static diagnostic and lead-generation quiz. It supports online schools, experts, courses, children’s centers, and small businesses.
 
-## Что внутри
+## Features
 
-- Стартовый экран.
-- Вопросы с прогресс-баром.
-- Подсчет результата по категориям.
-- Экран результата с коротким объяснением.
-- Кнопка "Оставить заявку".
-- Открытие Google Формы в новой вкладке.
-- Резервные контакты, если ссылка формы не указана.
-- Кнопка "Пройти заново".
-- Отдельные JS-файлы для вопросов, результатов и текстов.
+- Magic guide presentation.
+- Progress indicator and score-based results.
+- Google Form request button.
+- Russian and English localization through `?lang=ru|en`.
+- Standalone data and localization files.
 
-## Как запустить
-
-Откройте папку проекта в терминале и запустите локальный статический сервер:
-
-```bash
-python -m http.server 5173
-```
-
-Если в Windows доступна команда `py`, можно использовать:
+## Running locally
 
 ```bash
 py -m http.server 5173
 ```
 
-После запуска откройте в браузере:
+Open `http://localhost:5173`. ES modules require an HTTP server.
 
-```text
-http://localhost:5173
-```
+## Editing
 
-Для ES-модулей лучше использовать локальный сервер, а не открывать `index.html`
-двойным кликом.
+- Russian questions: `src/data/questions.js`
+- Russian results: `src/data/results.js`
+- Russian interface copy: `src/data/texts.js`
+- English localization: `src/data/localization.en.js`
+- Magic presentation: `src/components/magicGuide.js`
+- Styles: `src/css/`
 
-## Как менять вопросы
+Keep score keys aligned between questions and results. Deploy the complete folder to any static host.
 
-Файл: `src/data/questions.js`
+## Limitations
 
-Каждый вопрос содержит:
-
-- `id` - технический идентификатор.
-- `title` - текст вопроса.
-- `hint` - пояснение под вопросом.
-- `options` - варианты ответа.
-- `scores` - баллы по категориям результата.
-
-Ключи в `scores` должны совпадать с ключами результатов в
-`src/data/results.js`.
-
-## Как менять результаты
-
-Файл: `src/data/results.js`
-
-Для каждого результата можно изменить заголовок, короткое объяснение,
-рекомендацию и первые шаги. Порядок в `resultOrder` используется для случая,
-когда несколько результатов набрали одинаковое количество баллов.
-
-## Как менять тексты и ссылку формы
-
-Файл: `src/data/texts.js`
-
-Основные поля блока `form`:
-
-- `submitButton` - текст кнопки заявки.
-- `formUrl` - ссылка на Google Форму.
-- `openNote` - пояснение под кнопкой.
-- `contactNotice` - текст с контактами перед кнопкой.
-- `telegram`, `email`, `vk` - резервные контакты.
-
-Если `formUrl` оставить пустым, на финальном экране будут показаны резервные
-контакты.
-
-## Логотип и контакты
-
-Логотип берется из файла `DG_logo.png` в корне проекта. Клик по логотипу ведет
-на страницу Darles Games во ВКонтакте.
-
-Кнопки Telegram и VK в шапке находятся в `index.html`.
-
-## Где хранить ассеты
-
-Статичные файлы можно класть в:
-
-- `public/assets/images/`
-- `public/assets/audio/`
-- `public/assets/fonts/`
-
-После добавления ассетов подключайте их относительными путями из HTML или CSS.
-
-## Деплой
-
-Проект можно разместить на любом статическом хостинге:
-
-- Timeweb Cloud Static Sites.
-- Netlify.
-- Vercel static hosting.
-- GitHub Pages.
-- Обычный хостинг с загрузкой файлов по FTP.
-
-Загрузите `index.html`, `DG_logo.png`, папки `src/`, `public/`, `docs/` и
-`README.md`.
-
-## Ограничения
-
-- Нет backend.
-- Нет аналитики и пикселей.
-- Нет защиты от спама.
-- Google Форма открывается в новой вкладке.
-- Для публикации с реальными контактами нужна политика обработки персональных
-  данных.
+There is no backend, analytics, spam protection, or built-in privacy-policy flow. A privacy policy is required when a production form collects personal data.

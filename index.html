@@ -6,53 +6,52 @@
   <meta name="description" content="Библиотека интерактивных HTML5-демо Darles Games: квизы, промо-игры и поздравления.">
   <meta name="theme-color" content="#17142d">
   <title>Интерактивные веб-продукты — Darles Games</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./catalog/catalog.css">
   <script src="./catalog/catalog.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#catalog">Перейти к каталогу</a>
+  <a class="skip-link" href="#catalog" data-i18n="skip">Перейти к каталогу</a>
 
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Darles Games — главная каталога">
+    <a class="brand" href="https://darlesgames.github.io/" aria-label="Darles Games">
       <span class="brand-mark" aria-hidden="true">DG</span>
       <span>Darles Games</span>
     </a>
-    <a class="header-link" href="https://vk.ru/darlesgames" target="_blank" rel="noopener noreferrer">
-      О проекте <span aria-hidden="true">↗</span>
-    </a>
+    <div class="language-switcher" role="group" aria-label="Язык" data-i18n-aria="languageLabel">
+      <button type="button" data-language="ru" aria-pressed="true">RU</button>
+      <button type="button" data-language="en" aria-pressed="false">EN</button>
+    </div>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow">Интерактивная библиотека</p>
-        <h1 id="hero-title">Небольшие веб-продукты с большим эффектом</h1>
-        <p class="hero-text">
-          Квизы, игровые механики и особенные страницы Darles Games — каждое демо
-          доступно по отдельной постоянной ссылке.
-        </p>
-        <a class="primary-link" href="#catalog">Смотреть продукты</a>
+        <p class="eyebrow" data-i18n="heroEyebrow">Интерактивная библиотека</p>
+        <h1 id="hero-title" data-i18n="heroTitle">Небольшие веб-продукты с большим эффектом</h1>
+        <a class="primary-link" href="#catalog" data-i18n="viewProducts">Смотреть продукты</a>
       </div>
       <div class="hero-orbit" aria-hidden="true">
         <span class="orbit-core">6</span>
-        <span class="orbit-label">демо</span>
+        <span class="orbit-label" data-i18n="demoCount">демо</span>
       </div>
     </section>
 
     <section class="catalog" id="catalog" aria-labelledby="catalog-title">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Коллекция</p>
-          <h2 id="catalog-title">Выберите формат</h2>
+          <p class="eyebrow" data-i18n="collection">Коллекция</p>
+          <h2 id="catalog-title" data-i18n="chooseFormat">Выберите формат</h2>
         </div>
-        <p class="section-note">Все демо открываются в новой вкладке.</p>
       </div>
 
+      <div class="category-filters" id="category-filters" role="group" aria-label="Фильтр продуктов" data-i18n-aria="filterLabel"></div>
+
       <div id="catalog-content" aria-live="polite">
-        <p class="loading">Загружаем продукты…</p>
+        <p class="loading" data-i18n="loading">Загружаем продукты…</p>
       </div>
       <noscript>
-        <p class="catalog-message">Для загрузки каталога необходимо включить JavaScript.</p>
+        <p class="catalog-message">JavaScript is required to load the product catalog.</p>
       </noscript>
     </section>
   </main>
@@ -60,11 +59,10 @@
   <footer class="site-footer">
     <div>
       <strong>Darles Games</strong>
-      <p>Интерактивные решения для вовлечения аудитории.</p>
+      <p data-i18n="footerTagline">Интерактивные решения для вовлечения аудитории.</p>
     </div>
-    <p class="copyright">
-      © 2026 Алексей Спирин. Опубликовано под брендом Darles Games.<br>
-      Все права защищены.
+    <p class="copyright" data-i18n="copyright">
+      © 2026 Alexey Spirin. Published under the Darles Games brand. All rights reserved.
     </p>
   </footer>
 </body>

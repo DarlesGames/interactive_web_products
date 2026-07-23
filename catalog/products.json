@@ -9,6 +9,14 @@
     "status": "Демо",
     "order": 10,
     "featured": true
+    ,"translations": {
+      "en": {
+        "title": "Web solution quiz — version 1",
+        "categoryTitle": "Quizzes and solution finders",
+        "description": "The first demo of a quiz that helps identify the right web product format.",
+        "status": "Demo"
+      }
+    }
   },
   {
     "id": "web-solution-quiz-v2",
@@ -20,6 +28,14 @@
     "status": "Демо",
     "order": 20,
     "featured": true
+    ,"translations": {
+      "en": {
+        "title": "Web solution quiz — version 2",
+        "categoryTitle": "Quizzes and solution finders",
+        "description": "The second demo of a quiz for selecting the right web product format.",
+        "status": "Demo"
+      }
+    }
   },
   {
     "id": "standard-quiz-diagnostic",
@@ -31,6 +47,14 @@
     "status": "Демо",
     "order": 30,
     "featured": false
+    ,"translations": {
+      "en": {
+        "title": "Classic web product quiz",
+        "categoryTitle": "Quizzes and solution finders",
+        "description": "A classic diagnostic quiz that helps select the right web product format.",
+        "status": "Demo"
+      }
+    }
   },
   {
     "id": "magic-quiz-diagnostic",
@@ -42,6 +66,14 @@
     "status": "Демо",
     "order": 40,
     "featured": false
+    ,"translations": {
+      "en": {
+        "title": "Magic web product quiz",
+        "categoryTitle": "Quizzes and solution finders",
+        "description": "A magical take on a diagnostic quiz in the Darles Games style.",
+        "status": "Demo"
+      }
+    }
   },
   {
     "id": "catch-discount",
@@ -53,6 +85,14 @@
     "status": "Демо",
     "order": 50,
     "featured": true
+    ,"translations": {
+      "en": {
+        "title": "Catch the discount!",
+        "categoryTitle": "Promo mini-games",
+        "description": "A short mini-game for earning a discount, promo code, bonus, or another reward.",
+        "status": "Demo"
+      }
+    }
   },
   {
     "id": "wedding-greeting",
@@ -64,5 +104,13 @@
     "status": "Демо",
     "order": 60,
     "featured": true
+    ,"translations": {
+      "en": {
+        "title": "Wedding greeting",
+        "categoryTitle": "Greetings and invitations",
+        "description": "An interactive wedding greeting that can be personalized for a specific couple.",
+        "status": "Demo"
+      }
+    }
   }
 ]

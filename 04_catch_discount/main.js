@@ -6,25 +6,23 @@
    * Меняйте этот объект, чтобы адаптировать шаблон под магазин, кафе,
    * онлайн-курс, доставку, салон, маркетплейс или другую промоакцию.
    */
-  const CONFIG = {
-    gameName: "Поймай скидку",
-    targetScore: 100,
-    startingLives: 3,
-    promoCode: "MAGIC10",
+  const queryLanguage = new URLSearchParams(location.search).get("lang");
+  const savedLanguage = localStorage.getItem("darlesLanguage");
+  const language = queryLanguage === "en" || queryLanguage === "ru"
+    ? queryLanguage
+    : savedLanguage === "en" ? "en" : "ru";
+  localStorage.setItem("darlesLanguage", language);
+  document.documentElement.lang = language;
 
-    scene: {
-      width: 360,
-      height: 640,
-      maxDevicePixelRatio: 2,
-    },
-
-    texts: {
+  const LOCALIZATION = {
+    ru: {
+      gameName: "Поймай скидку",
       metaDescription: "Поймай магические бонусы и получи промокод.",
-      hud: {
-        score: "Очки",
-        lives: "Попытки",
-        progress: "Магия скидки",
-      },
+      gameAria: "Мини-игра «Поймай скидку»",
+      canvasAria: "Игровое поле «Поймай скидку»",
+      promoAria: "Промокод",
+      livesAria: "Осталось попыток",
+      hud: { score: "Очки", lives: "Попытки", progress: "Магия скидки" },
       start: {
         eyebrow: "Магическая мини-игра",
         titleLine1: "Поймай",
@@ -49,18 +47,62 @@
         description: "Не сдавайся — удача любит настойчивых",
         retryButton: "Попробовать снова",
       },
-      sound: {
-        on: "Звук",
-        off: "Тихо",
-        enable: "Включить звук",
-        disable: "Выключить звук",
-      },
-      damage: {
-        stone: "Проклятый камень!",
-        blackOrb: "Чёрная сфера!",
-      },
+      sound: { on: "Звук", off: "Тихо", enable: "Включить звук", disable: "Выключить звук" },
+      damage: { stone: "Проклятый камень!", blackOrb: "Чёрная сфера!" },
       pageNote: "Лови бонусы · Избегай опасных предметов · Набери {target} очков",
     },
+    en: {
+      gameName: "Catch the discount",
+      metaDescription: "Catch magical bonuses and earn a promo code.",
+      gameAria: "Catch the discount mini-game",
+      canvasAria: "Catch the discount game area",
+      promoAria: "Promo code",
+      livesAria: "Attempts remaining",
+      hud: { score: "Score", lives: "Attempts", progress: "Discount magic" },
+      start: {
+        eyebrow: "Magic mini-game",
+        titleLine1: "Catch the",
+        titleLine2: "discount",
+        description: "Catch magical bonuses\nand earn a promo code",
+        button: "Play",
+        controlsHint: "Move with your mouse or finger",
+      },
+      win: {
+        eyebrow: "Victory",
+        titleLine1: "Discount",
+        titleLine2: "caught!",
+        description: "Your magical promo code",
+        copyButton: "Copy promo code",
+        replayButton: "Play again",
+        copied: "Promo code copied!",
+      },
+      lose: {
+        eyebrow: "No attempts left",
+        titleLine1: "The discount",
+        titleLine2: "escaped",
+        description: "Keep trying — luck rewards persistence",
+        retryButton: "Try again",
+      },
+      sound: { on: "Sound", off: "Muted", enable: "Enable sound", disable: "Disable sound" },
+      damage: { stone: "Cursed stone!", blackOrb: "Black orb!" },
+      pageNote: "Catch bonuses · Avoid dangerous items · Score {target} points",
+    },
+  };
+
+  const activeTexts = LOCALIZATION[language];
+  const CONFIG = {
+    gameName: activeTexts.gameName,
+    targetScore: 100,
+    startingLives: 3,
+    promoCode: "MAGIC10",
+
+    scene: {
+      width: 360,
+      height: 640,
+      maxDevicePixelRatio: 2,
+    },
+
+    texts: activeTexts,
 
     colors: {
       ink: "#fffaf0",
@@ -325,8 +367,8 @@
     document.title = CONFIG.gameName;
     ui.themeColorMeta.content = colors.sceneBackground;
     ui.descriptionMeta.content = texts.metaDescription;
-    ui.gameShell.setAttribute("aria-label", `Мини-игра «${CONFIG.gameName}»`);
-    canvas.setAttribute("aria-label", `Игровое поле «${CONFIG.gameName}»`);
+    ui.gameShell.setAttribute("aria-label", texts.gameAria);
+    canvas.setAttribute("aria-label", texts.canvasAria);
     frame.style.aspectRatio = `${SCENE_WIDTH} / ${SCENE_HEIGHT}`;
 
     ui.scoreLabel.textContent = texts.hud.score;
@@ -345,7 +387,7 @@
     ui.winTitleLine2.textContent = texts.win.titleLine2;
     setMultilineText(ui.winDescription, texts.win.description);
     ui.promoCodeValue.textContent = CONFIG.promoCode;
-    ui.promoCodeValue.parentElement.setAttribute("aria-label", `Промокод ${CONFIG.promoCode}`);
+    ui.promoCodeValue.parentElement.setAttribute("aria-label", `${texts.promoAria} ${CONFIG.promoCode}`);
     ui.copyButton.textContent = texts.win.copyButton;
     ui.playAgainButton.textContent = texts.win.replayButton;
 
@@ -432,7 +474,7 @@
     const filled = "♥ ".repeat(state.lives).trim();
     const empty = "♡ ".repeat(CONFIG.startingLives - state.lives).trim();
     livesValue.textContent = [filled, empty].filter(Boolean).join(" ");
-    livesValue.setAttribute("aria-label", `Осталось попыток: ${state.lives}`);
+    livesValue.setAttribute("aria-label", `${CONFIG.texts.livesAria}: ${state.lives}`);
   }
 
   function chooseWeightedItem(keys) {

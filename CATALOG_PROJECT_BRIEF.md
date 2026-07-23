@@ -1,77 +1,51 @@
-# PROJECT BRIEF — библиотека интерактивных веб-продуктов Darles Games
+# PROJECT BRIEF — Darles Games Interactive Web Product Library
 
-## 1. Решение
+## 1. Product
 
-Создать один публичный репозиторий-каталог для небольших интерактивных HTML5-продуктов Darles Games.
-
-Рабочее название репозитория:
+Create one public catalog repository for small interactive Darles Games HTML5 products:
 
 ```text
 darles-interactive-web-products
 ```
 
-Репозиторий выполняет две функции:
+The repository serves as both a public demo library and a stable source of links for the main Darles Games website. Simple quizzes, forms, greetings, and promo mini-games do not require separate repositories.
 
-1. Публичная библиотека демонстраций.
-2. Единый источник постоянных ссылок для карточек на основном сайте Darles Games.
+## 2. Adding products
 
-Отдельный репозиторий под каждый простой квиз, форму, поздравление или промо-мини-игру не создаётся.
+A finished demo folder is copied into the repository root. Codex then checks the folder, adds catalog metadata, creates the card, verifies local and GitHub Pages compatibility, and leaves the internal mechanics unchanged unless explicitly requested.
 
-## 2. Модель добавления продуктов
+Folders are not renamed automatically, even when their names contain a typo or unconventional formatting.
 
-Пользователь копирует готовую папку демо в корень локального репозитория.
+## 3. Current categories
 
-После этого Codex:
+### Quizzes and solution finders
 
-- проверяет папку;
-- добавляет метаданные в каталог;
-- подключает карточку;
-- проверяет локальный запуск;
-- проверяет совместимость с GitHub Pages;
-- не меняет внутреннюю механику без прямого запроса.
+Interactive products that ask questions, analyze answers, and return a recommendation, result, or estimate.
 
-Папки не переименовываются автоматически, даже если в названии есть опечатка или нестандартное форматирование.
+### Promo mini-games
 
-## 3. Текущие категории
+Short game mechanics for discounts, promo codes, bonuses, campaigns, and audience engagement.
 
-### Квизы и подборщики
+### Greetings and invitations
 
-Интерактивные продукты, которые задают вопросы, анализируют ответы и выдают рекомендацию, результат или предварительный расчёт.
+Interactive cards, greetings, invitations, and event pages.
 
-### Промо-мини-игры
+Future categories should be added only when a real product exists. Possible additions include forms, calculators, interactive presentations, training tests, and branded mini-games.
 
-Короткие игровые механики для скидок, промокодов, бонусов, рекламных кампаний и вовлечения аудитории.
+## 4. Initial library
 
-### Поздравления и приглашения
+| # | Catalog title | Folder | Category |
+|---:|---|---|---|
+| 1 | Web solution quiz — version 1 | `00_interactive-web-solution-quiz-v1.0` | Quizzes and solution finders |
+| 2 | Web solution quiz — version 2 | `01_interactive-web-solution-quiz-v2.0` | Quizzes and solution finders |
+| 3 | Classic web product quiz | `02_standart_quiz__diagnostic` | Quizzes and solution finders |
+| 4 | Magic web product quiz | `03_magic_quiz_diagnostic` | Quizzes and solution finders |
+| 5 | Catch the discount! | `04_catch_discount` | Promo mini-games |
+| 6 | Wedding greeting | `05_creeting_cards` | Greetings and invitations |
 
-Интерактивные открытки, поздравления, приглашения и страницы событий.
+Folder names are preserved. Any rename requires a separate task and a complete link audit.
 
-### Будущие категории
-
-Добавлять только при появлении реального продукта:
-
-- формы и заявки;
-- калькуляторы;
-- интерактивные презентации;
-- тесты для обучения;
-- брендированные мини-игры.
-
-Не создавать пустые разделы ради будущей структуры.
-
-## 4. Начальный состав библиотеки
-
-| № | Название в каталоге | Папка | Категория | Описание |
-|---:|---|---|---|---|
-| 1 | Квиз-подборщик веб-решения — версия 1 | `00_interactive-web-solution-quiz-v1.0` | Квизы и подборщики | Первая демонстрационная версия квиза, помогающего определить подходящий формат веб-продукта. |
-| 2 | Квиз-подборщик веб-решения — версия 2 | `00_interactive-web-solution-quiz-v2.0` | Квизы и подборщики | Вторая демонстрационная версия квиза для подбора подходящего веб-продукта. |
-| 3 | Классический квиз по веб-продуктам | `02_standart_quiz__diagnostic` | Квизы и подборщики | Классический диагностический квиз, который помогает выбрать подходящий формат веб-продукта. |
-| 4 | Магический квиз по веб-продуктам | `03_magic_quiz_diagnostic` | Квизы и подборщики | Волшебная версия диагностического квиза в стилистике Darles Games. |
-| 5 | Поймай скидку! | `04_catch_discount` | Промо-мини-игры | Короткая мини-игра для получения скидки, промокода, бонуса или другого вознаграждения. |
-| 6 | Свадебное поздравление | `creeting_cards` | Поздравления и приглашения | Интерактивное свадебное поздравление, которое можно персонализировать под конкретную пару. |
-
-Примечание: имя папки `creeting_cards` сохраняется в первой версии каталога. Переименование возможно только отдельной задачей с одновременной проверкой всех ссылок.
-
-## 5. Архитектура первой версии
+## 5. Architecture
 
 ```text
 /
@@ -82,169 +56,61 @@ darles-interactive-web-products
 ├── catalog/
 │   ├── catalog.css
 │   ├── catalog.js
-│   ├── products.json
-│   └── assets/
-├── 00_interactive-web-solution-quiz-v1.0/
-├── 00_interactive-web-solution-quiz-v2.0/
-├── 02_standart_quiz__diagnostic/
-├── 03_magic_quiz_diagnostic/
-├── 04_catch_discount/
-└── creeting_cards/
+│   └── products.json
+└── <standalone product folders>/
 ```
 
-Каталог не использует npm и не требует сборки.
+The catalog uses HTML5, CSS, JavaScript, and JSON. It has no npm dependency or build process.
 
-Допустимый стек каталога:
+## 6. Catalog page
 
-- HTML5;
-- CSS;
-- JavaScript;
-- JSON;
-- статические изображения WebP/PNG/SVG.
+The main page contains the Darles Games identity, library title, category filters, product cards, status labels, demo links, a Russian/English language switcher, and a rights notice. Demo links open in a new tab.
 
-## 6. Главная страница
+Search, accounts, payments, backend services, a CMS, an admin panel, automatic folder scanning, and a dynamic GitHub API are outside the first release.
 
-Главная страница должна содержать:
+## 7. Design
 
-- логотип или название Darles Games;
-- заголовок библиотеки;
-- короткое объяснение назначения;
-- разделы по категориям;
-- карточки продуктов;
-- название продукта;
-- описание;
-- метку категории или статуса;
-- кнопку `Открыть демо`;
-- ссылку на основной сайт Darles Games;
-- уведомление о правах в подвале.
+The catalog may use restrained Darles Games magic styling. It must remain modern, clean, readable, high-contrast, responsive from 360 px, and accessible with mouse, touch, and keyboard. Products remain visually independent.
 
-Демо желательно открывать в новой вкладке.
+## 8. Local development
 
-На первом этапе не требуются:
-
-- поиск;
-- сложные фильтры;
-- аккаунты;
-- формы оплаты;
-- backend;
-- CMS;
-- админ-панель;
-- автоматическое сканирование папок браузером;
-- динамический GitHub API;
-- npm-сборка;
-- фреймворк.
-
-## 7. Дизайн каталога
-
-Каталог является продуктом Darles Games, поэтому допустима умеренная магическая стилистика бренда.
-
-Требования:
-
-- современный и чистый интерфейс;
-- не перегружать эффектами;
-- карточки должны легко сравниваться;
-- основной акцент — сами продукты;
-- хороший контраст;
-- адаптивность от 360 px;
-- удобное управление мышью, касанием и клавиатурой;
-- анимации короткие и необязательные;
-- отсутствие тяжёлых фоновых видео и визуального шума.
-
-Не навязывать магическую стилистику самим клиентским продуктам. Она относится только к упаковке каталога и продуктам Darles Games, где уже предусмотрена.
-
-## 8. Локальный запуск
-
-Часть продуктов может не работать через прямое открытие файла из-за `fetch`, ES modules или ограничений браузера.
-
-Запускать из корня репозитория:
+Run from the repository root:
 
 ```powershell
 py -m http.server 8080
 ```
 
-Открывать:
+Open:
 
 ```text
 http://localhost:8080/
 ```
 
-Важно: корректная команда — `py -m http.server 8080`.
-
 ## 9. GitHub Pages
 
-Публикация выполняется как статический сайт.
-
-Планируемый адрес каталога:
+The planned URL is:
 
 ```text
 https://darlesgames.github.io/darles-interactive-web-products/
 ```
 
-Примеры адресов:
+All internal links must be relative so the site works from the repository subdirectory.
+
+## 10. Public content
+
+Demo versions, test copy, catalog assets, documentation, and estimated results may be public. Client data, contact databases, user submissions, credentials, private commercial documents, restricted core code, and materials that cannot be republished must remain private.
+
+## 11. Rights
+
+The repository does not use an open-source license.
 
 ```text
-https://darlesgames.github.io/darles-interactive-web-products/00_interactive-web-solution-quiz-v1.0/
-https://darlesgames.github.io/darles-interactive-web-products/04_catch_discount/
-https://darlesgames.github.io/darles-interactive-web-products/creeting_cards/
+© 2026 Alexey Spirin. Published under the Darles Games brand.
+All rights reserved.
 ```
 
-Все ссылки должны корректно работать в подкаталоге репозитория. Абсолютные пути от корня домена использовать нельзя без обоснованной необходимости.
+Public visibility permits inspection of the implementation but does not grant resale or commercial-use rights. Third-party components retain their own licenses.
 
-## 10. Публичное и закрытое
+## 12. Release criteria
 
-В публичном репозитории допускаются:
-
-- демонстрационные версии;
-- тестовые тексты и данные;
-- обложки;
-- каталог;
-- README;
-- ссылки на Darles Games;
-- ориентировочные результаты и расчёты внутри демо.
-
-Не допускаются:
-
-- версии реальных клиентов без разрешения;
-- контактные базы;
-- заявки пользователей;
-- API-ключи и токены;
-- пароли;
-- приватные коммерческие документы;
-- закрытое универсальное ядро, если оно появится;
-- материалы с запрещающей публикацию лицензией.
-
-## 11. Права
-
-Публичный репозиторий не получает открытую лицензию.
-
-Рекомендуемая формулировка:
-
-```text
-© 2026 Алексей Спирин. Опубликовано под брендом Darles Games.
-Все права защищены.
-```
-
-Публичность репозитория позволяет просматривать техническую реализацию, но не является разрешением на перепродажу или коммерческое использование.
-
-Сторонние компоненты сохраняют собственные лицензии.
-
-## 12. Критерии готовности первой версии
-
-Первая версия готова, когда:
-
-1. Главная страница каталога работает через локальный HTTP-сервер.
-2. В каталоге отображаются все шесть продуктов.
-3. Продукты разделены на три актуальные категории.
-4. Каждая карточка ведёт в существующую папку продукта.
-5. Все шесть прямых URL открываются без критических ошибок.
-6. Каталог работает на мобильных устройствах.
-7. В коде нет абсолютной зависимости от localhost.
-8. Репозиторий можно опубликовать через GitHub Pages без сборки.
-9. В README есть назначение, запуск, структура и уведомление о правах.
-10. Внутренняя логика продуктов не изменена, кроме зафиксированных минимальных исправлений совместимости.
-
-## 13. Следующее развитие
-
-После двух-трёх ручных добавлений продуктов и стабилизации структуры создать навык Codex `manage-interactive-products-catalog`.
-
-До этого автоматизация преждевременна: сначала нужно проверить реальный процесс добавления, типичные ошибки путей и формат метаданных.
+The first release is ready when the catalog works through a local HTTP server, displays all six products in three categories, all direct URLs open without critical errors, the interface works on mobile, links are subdirectory-safe, the repository can be published without a build step, public documentation is complete, and product logic remains intact except for documented compatibility and localization changes.

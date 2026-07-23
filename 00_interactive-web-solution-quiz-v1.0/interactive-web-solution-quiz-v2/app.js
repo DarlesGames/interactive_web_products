@@ -7,7 +7,13 @@
   const examplesList = document.getElementById("examplesList");
   const storageKey = "darles-product-001-state-v2";
 
-  const defaultLanguage = (navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
+  const queryLanguage = new URLSearchParams(location.search).get("lang");
+  const storedLanguage = localStorage.getItem("darlesLanguage");
+  const defaultLanguage = ["ru", "en"].includes(queryLanguage)
+    ? queryLanguage
+    : ["ru", "en"].includes(storedLanguage)
+      ? storedLanguage
+      : (navigator.language || "en").toLowerCase().startsWith("ru") ? "ru" : "en";
   const defaultState = {
     screen: "start",
     questionIndex: 0,
@@ -18,6 +24,7 @@
   };
 
   let state = loadState();
+  state.language = defaultLanguage;
   let autoAdvanceTimer = null;
 
   function loadState() {
@@ -44,6 +51,15 @@
 
   function applyEnvironment() {
     document.documentElement.lang = state.language;
+    document.title = state.language === "ru"
+      ? "Darles Games — подбор веб-решения"
+      : "Web solution finder — Darles Games";
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      description.content = state.language === "ru"
+        ? "Интерактивный подборщик веб-решения Darles Games: формат, срок и предварительная цена."
+        : "Darles Games interactive web solution finder with format, timeline, and estimate.";
+    }
     document.body.dataset.theme = state.theme;
     document.querySelectorAll("[data-theme-choice]").forEach((button) => {
       button.classList.toggle("is-active", button.dataset.themeChoice === state.theme);
@@ -421,6 +437,7 @@
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.addEventListener("click", () => {
       state.language = button.dataset.language;
+      localStorage.setItem("darlesLanguage", state.language);
       state.result = state.screen === "result" ? calculateResult() : state.result;
       render();
     });

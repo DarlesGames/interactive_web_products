@@ -9,6 +9,7 @@ export const texts = {
   },
   quiz: {
     questionLabel: "Вопрос",
+    of: "из",
     next: "Далее",
     finish: "Показать результат",
     restart: "Начать заново",
@@ -32,6 +33,7 @@ export const texts = {
     contactNotice:
       "После отправки формы я свяжусь с вами по указанному контакту.\nTelegram: https://t.me/ProgrammerLeks\nVK: https://vk.ru/darlesgames\nПочта: darlesgames@yandex.ru",
     fallbackTitle: "Резервные контакты",
+    emailLabel: "Почта",
     telegram: "https://t.me/ProgrammerLeks",
     email: "darlesgames@yandex.ru",
     vk: "https://vk.ru/darlesgames",

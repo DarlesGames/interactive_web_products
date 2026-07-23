@@ -19,7 +19,7 @@ export function createQuizScreen({
   meta.className = "progress-meta";
 
   const currentLabel = document.createElement("span");
-  currentLabel.textContent = `${texts.questionLabel} ${questionIndex + 1} из ${totalQuestions}`;
+  currentLabel.textContent = `${texts.questionLabel} ${questionIndex + 1} ${texts.of} ${totalQuestions}`;
 
   const percentLabel = document.createElement("span");
   percentLabel.textContent = `${progressPercent}%`;

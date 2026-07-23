@@ -2,12 +2,48 @@ import { createInitialState } from "./state.js";
 import { createMagicGuide } from "./components/magicGuide.js";
 import { createQuizScreen } from "./components/quiz.js";
 import { createResultScreen } from "./components/result.js";
-import { questions } from "./data/questions.js";
-import { resultOrder, results } from "./data/results.js";
-import { texts } from "./data/texts.js";
+import { questions as questionsRu } from "./data/questions.js";
+import { resultOrder, results as resultsRu } from "./data/results.js";
+import { texts as textsRu } from "./data/texts.js";
+import { questionsEn, resultsEn, textsEn } from "./data/localization.en.js";
+
+const language = getLanguage();
+const questions = language === "en" ? questionsEn : questionsRu;
+const results = language === "en" ? resultsEn : resultsRu;
+const texts = language === "en" ? textsEn : textsRu;
 
 const app = document.querySelector("#app");
 let state = createInitialState();
+
+applyPageLanguage();
+
+function getLanguage() {
+  const queryLanguage = new URLSearchParams(location.search).get("lang");
+  if (queryLanguage === "ru" || queryLanguage === "en") {
+    localStorage.setItem("darlesLanguage", queryLanguage);
+    return queryLanguage;
+  }
+  const storedLanguage = localStorage.getItem("darlesLanguage");
+  return storedLanguage === "en" ? "en" : "ru";
+}
+
+function applyPageLanguage() {
+  const page = language === "en"
+    ? textsEn.page
+    : {
+        title: "Квиз-диагностика",
+        description: "HTML5-квиз для диагностики и заявки через Google Форму.",
+        headerAria: "Шапка продукта",
+        contactsAria: "Контакты разработчика",
+        footer: "После результата можно открыть форму заявки или связаться с разработчиком.",
+      };
+  document.documentElement.lang = language;
+  document.title = page.title;
+  document.querySelector('meta[name="description"]').content = page.description;
+  document.querySelector(".topbar").setAttribute("aria-label", page.headerAria);
+  document.querySelector(".developer-contacts").setAttribute("aria-label", page.contactsAria);
+  document.querySelector(".footer").textContent = page.footer;
+}
 
 function setState(nextState) {
   state = { ...state, ...nextState };
@@ -53,7 +89,7 @@ function renderStart() {
   const guide = createMagicGuide({
     heading: texts.start.title,
     text: texts.start.lead,
-    ariaLabel: "Вступление к тесту",
+    ariaLabel: language === "en" ? textsEn.page.introAria : "Вступление к тесту",
   });
 
   const facts = document.createElement("div");
@@ -111,6 +147,7 @@ function renderResult() {
     result,
     texts: texts.result,
     formTexts: texts.form,
+    resultAria: language === "en" ? textsEn.page.resultAria : "Результат теста",
     onRestart: restart,
   });
 }

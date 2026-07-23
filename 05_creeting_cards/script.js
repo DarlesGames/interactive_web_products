@@ -1,4 +1,73 @@
 (() => {
+  const queryLanguage = new URLSearchParams(location.search).get('lang');
+  const savedLanguage = localStorage.getItem('darlesLanguage');
+  const language = queryLanguage === 'en' || queryLanguage === 'ru'
+    ? queryLanguage
+    : savedLanguage === 'en' ? 'en' : 'ru';
+  localStorage.setItem('darlesLanguage', language);
+  document.documentElement.lang = language;
+
+  const english = new Map([
+    ['Илларион и Элиза', 'Illarion and Eliza'],
+    ['Поздравляем вас с днём свадьбы!', 'Congratulations on your wedding day!'],
+    ['Желаем вам любви, взаимного уважения, семейного счастья и много радостных дней вместе.', 'May your life together be filled with love, mutual respect, family happiness, and many joyful days.'],
+    ['Открыть поздравление', 'Open the greeting'],
+    ['Нажмите на все струны, чтобы открыть пожелания.', 'Play every string to reveal the wishes.'],
+    ['Шесть струн с пожеланиями', 'Six strings with wedding wishes'],
+    ['Крепкой любви и взаимного уважения.', 'Strong love and mutual respect.'],
+    ['Доверия, терпения и понимания.', 'Trust, patience, and understanding.'],
+    ['Уюта, тепла и достатка в доме.', 'Comfort, warmth, and abundance at home.'],
+    ['Поддержки друг друга в любой ситуации.', 'Support for one another in every situation.'],
+    ['Общих целей и счастливых событий.', 'Shared goals and happy occasions.'],
+    ['Много радости, улыбок и добрых воспоминаний.', 'Plenty of joy, smiles, and wonderful memories.'],
+    ['Пожелания появятся здесь.', 'Your wishes will appear here.'],
+    ['Дальше', 'Continue'],
+    ['Показать сразу', 'Show now'],
+    ['Силуэт жениха', 'Groom silhouette'],
+    ['Илларион', 'Illarion'],
+    ['Поздравляем тебя с этим важным днём!', 'Congratulations on this important day!'],
+    ['Желаем быть надёжной опорой для своей семьи, беречь любовь и всегда поддерживать Элизу.', 'May you always be a reliable source of support for your family, protect your love, and stand by Eliza.'],
+    ['Пусть ваш дом будет наполнен теплом, спокойствием и радостью.', 'May your home be filled with warmth, peace, and joy.'],
+    ['Силуэт невесты', 'Bride silhouette'],
+    ['Элиза', 'Eliza'],
+    ['Поздравляем тебя с днём свадьбы!', 'Congratulations on your wedding day!'],
+    ['Желаем любви, семейного счастья, душевного тепла и исполнения общих мечтаний.', 'May you have love, family happiness, heartfelt warmth, and the fulfillment of your shared dreams.'],
+    ['Пусть рядом всегда будет забота, понимание и поддержка Иллариона.', 'May Illarion’s care, understanding, and support always be by your side.'],
+    ['Свадебный тост', 'Wedding toast'],
+    ['За вашу новую семью! Желаем вам любить и уважать друг друга, вместе встречать радостные события и легко справляться с трудностями. Пусть ваш союз будет крепким и счастливым.', 'To your new family! May you love and respect one another, celebrate joyful moments together, and meet every challenge with ease. May your union be strong and happy.'],
+    ['Силуэты жениха и невесты вместе', 'Bride and groom silhouettes together'],
+    ['Счастья вашей семье!', 'Happiness to your family!'],
+    ['Пусть ваша совместная жизнь будет долгой, спокойной и счастливой. Берегите друг друга, чаще радуйтесь вместе и сохраняйте любовь на долгие годы.', 'May your life together be long, peaceful, and happy. Take care of one another, share joy often, and keep your love strong for many years.'],
+    ['С днём свадьбы!', 'Happy wedding day!'],
+    ['Сначала', 'Start over'],
+    ['Ещё немного радости', 'More celebration'],
+    ['Включить или выключить звук', 'Toggle sound'],
+    ['звук: вкл', 'sound: on'],
+  ]);
+
+  function applyEnglishPage() {
+    if (language !== 'en') return;
+    document.title = 'Illarion and Eliza';
+    document.querySelector('meta[name="description"]').content = 'A wedding greeting for Illarion and Eliza';
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach((node) => {
+      const source = node.nodeValue.trim();
+      if (english.has(source)) node.nodeValue = node.nodeValue.replace(source, english.get(source));
+    });
+
+    document.querySelectorAll('[aria-label], [alt], [data-wish]').forEach((element) => {
+      ['aria-label', 'alt', 'data-wish'].forEach((attribute) => {
+        const value = element.getAttribute(attribute);
+        if (english.has(value)) element.setAttribute(attribute, english.get(value));
+      });
+    });
+  }
+
+  applyEnglishPage();
+
   const screens = [...document.querySelectorAll('.screen')];
   const nextButtons = [...document.querySelectorAll('[data-next]')];
   const progress = document.querySelector('.progress');
@@ -20,7 +89,12 @@
   let poemStarted = false;
   let poemTimer = null;
 
-  const poem = `Пусть ваша семья будет крепкой,
+  const poem = language === 'en' ? `May your family always be strong,
+and may every new day bring
+warmth, joy, and peace.
+
+Love and respect one another,
+and always stand side by side.` : `Пусть ваша семья будет крепкой,
 а каждый новый день приносит
 тепло, радость и спокойствие.
 
@@ -179,7 +253,9 @@
 
   soundToggle.addEventListener('click', () => {
     soundEnabled = !soundEnabled;
-    soundToggle.textContent = `звук: ${soundEnabled ? 'вкл' : 'выкл'}`;
+    soundToggle.textContent = language === 'en'
+      ? `sound: ${soundEnabled ? 'on' : 'off'}`
+      : `звук: ${soundEnabled ? 'вкл' : 'выкл'}`;
     if (soundEnabled) playTone(392, 0.18);
   });
 

@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./interactive-web-solution-quiz-v2/">
   <title>Квиз-подборщик веб-решения — Darles Games</title>
+  <script>
+    const target = new URL("./interactive-web-solution-quiz-v2/", location.href);
+    target.search = location.search;
+    location.replace(target);
+  </script>
 </head>
 <body>
   <p>
     Открываем демо…
-    <a href="./interactive-web-solution-quiz-v2/">Перейти к квизу</a>
+    <a href="./interactive-web-solution-quiz-v2/">Перейти к квизу / Open the quiz</a>
   </p>
 </body>
 </html>

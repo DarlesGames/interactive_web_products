@@ -52,13 +52,13 @@ function createFallbackContacts(texts) {
 
   [
     ["Telegram", texts.telegram],
-    ["Почта", texts.email],
+    [texts.emailLabel, texts.email],
     ["VK", texts.vk],
   ].forEach(([label, value]) => {
     const item = document.createElement("li");
     const link = document.createElement("a");
-    link.href = label === "Почта" ? `mailto:${value}` : value;
-    link.target = label === "Почта" ? "_self" : "_blank";
+    link.href = value === texts.email ? `mailto:${value}` : value;
+    link.target = value === texts.email ? "_self" : "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = `${label}: ${value}`;
     item.append(link);

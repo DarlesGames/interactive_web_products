@@ -1,19 +1,24 @@
-# Свадебная интерактивная открытка для Иллариона и Элизы
+# Interactive Wedding Greeting for Illarion and Eliza
 
-## Запуск
-Откройте `index.html` в браузере. Проект не требует сервера, npm или сборки.
+## Running locally
 
-## Файлы
-- `index.html` — разметка открытки и поздравительные тексты.
-- `style.css` — оформление и адаптация под мобильный экран.
-- `script.js` — переключение экранов, струны, звук и конфетти.
-- `assets/groom_silhouette.png` — силуэт жениха.
-- `assets/bride_silhouette.png` — силуэт невесты.
-- `assets/couple_silhouette.png` — силуэты жениха и невесты вместе.
+Open `index.html` in a browser. The project requires no server, npm packages, or build process.
 
-## Как изменить текст
-Основные тексты находятся в `index.html`.
-Текст анимированного поздравления находится в `script.js` в переменной `poem`.
+## Files
 
-## Как отправить
-Папку можно загрузить на статический хостинг или открыть локально на телефоне или компьютере.
+- `index.html` — greeting structure and Russian source copy.
+- `style.css` — appearance and mobile layout.
+- `script.js` — Russian/English localization, screen navigation, guitar strings, sound, and confetti.
+- `assets/groom_silhouette.png` — groom silhouette.
+- `assets/bride_silhouette.png` — bride silhouette.
+- `assets/couple_silhouette.png` — couple silhouette.
+
+The language is inherited from the catalog through `?lang=ru|en`.
+
+## Customization
+
+Russian source copy is in `index.html`. English translations and the animated poem are in `script.js`.
+
+## Publishing
+
+Upload the complete folder to a static host or open it locally on a phone or computer.

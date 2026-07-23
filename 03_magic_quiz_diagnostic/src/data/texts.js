@@ -9,6 +9,7 @@ export const texts = {
   },
   quiz: {
     questionLabel: "Вопрос",
+    of: "из",
     next: "Далее",
     finish: "Показать результат",
     restart: "Начать заново",
@@ -31,6 +32,8 @@ export const texts = {
     openNote: "Форма откроется в новой вкладке.",
     contactNotice:
       "После отправки формы я свяжусь с вами по указанному контакту."
+    ,
+    emailLabel: "Почта",
     
   },
   contacts: {
