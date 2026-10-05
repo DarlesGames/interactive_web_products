@@ -112,5 +112,43 @@
         "status": "Demo"
       }
     }
+  },
+  {
+    "id": "diagnostic-quiz-classic",
+    "title": "Классический диагностический квиз",
+    "folder": "06_diagnostic_quiz__classic",
+    "category": "quizzes",
+    "categoryTitle": "Квизы и подборщики",
+    "description": "Семь вопросов для подбора интерактивного теста под задачи бизнеса, персональная рекомендация и переход к заявке через Google Форму.",
+    "status": "Демо",
+    "order": 70,
+    "featured": false,
+    "translations": {
+      "en": {
+        "title": "Classic diagnostic quiz",
+        "categoryTitle": "Quizzes and solution finders",
+        "description": "Seven questions to choose an interactive test for a business, a personalized recommendation, and a Google Forms inquiry. Russian-language demo.",
+        "status": "Demo"
+      }
+    }
+  },
+  {
+    "id": "interactive-training-simulator",
+    "title": "Интерактивный обучающий симулятор",
+    "folder": "07_interactive_training_simulator",
+    "category": "training",
+    "categoryTitle": "Обучение и тренажёры",
+    "description": "Тренажёр переговоров Ares Frontier: диалог с клиентом, решения и их последствия, мини-игра в дартс и разбор навыков.",
+    "status": "Демо",
+    "order": 80,
+    "featured": false,
+    "translations": {
+      "en": {
+        "title": "Interactive training simulator",
+        "categoryTitle": "Learning and training simulators",
+        "description": "An Ares Frontier negotiation simulator with client dialogue, choices and consequences, a darts mini-game, and a skills debrief. Russian-language demo.",
+        "status": "Demo"
+      }
+    }
   }
 ]

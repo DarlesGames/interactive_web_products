@@ -52,6 +52,7 @@ const categoryIcons = {
   quizzes: "✦",
   "promo-games": "◆",
   greetings: "♡",
+  training: "◎",
 };
 
 let products = [];
@@ -218,6 +219,7 @@ fetch("./catalog/products.json")
   .then((data) => {
     if (!Array.isArray(data)) throw new TypeError("Expected an array of products");
     products = data;
+    document.querySelector(".orbit-core").textContent = String(products.length);
     applyLanguage();
   })
   .catch((error) => {

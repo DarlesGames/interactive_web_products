@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080d14">
+  <meta name="description" content="Марс ближе, чем кажется. Две минуты в роли продавца: живые переговоры, решения и их последствия. Интерактивный тренажёр для бизнеса.">
+  <title>Ares Frontier — Interactive Training Simulator</title>
+  <link rel="icon" type="image/png" href="assets/B01_ares_logo_full.png">
+  <link rel="preload" as="image" href="assets/E04_intro_background.png">
+  <link rel="preload" as="image" href="assets/A01_aristarkh_skeptical.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/scenario.js"></script>
+  <script defer src="js/state.js"></script>
+  <script defer src="js/darts.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body data-mode="intro">
+  <div class="simulator">
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/B01_ares_logo_full.png" width="54" height="36" alt="">
+        <div class="brand-name">ARES FRONTIER<span>TRAINING SIMULATION</span></div>
+      </div>
+      <div class="score" id="score" role="status" aria-label="Счёт дротиков" hidden>
+        <div class="score-client"><span>АРИСТАРХ</span><strong id="client-score">0</strong></div>
+        <span class="score-divider" aria-hidden="true">:</span>
+        <div class="score-player"><strong id="player-score">0</strong><span>ВЫ</span></div>
+      </div>
+    </header>
+    <div class="world" aria-hidden="true">
+      <div class="room room-intro"></div>
+      <div class="room room-main"></div>
+      <div class="world-shade"></div>
+      <div class="character-frame" id="character-frame">
+        <img class="character" id="character-a" alt="" src="assets/A01_aristarkh_skeptical.png">
+        <img class="character" id="character-b" alt="">
+      </div>
+    </div>
+    <main id="view" tabindex="-1"></main>
+    <div class="sr-only" id="announcer" role="status" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  <noscript><p class="no-script">Для переговоров и бросков включите JavaScript в браузере.</p></noscript>
+</body>
+</html>
