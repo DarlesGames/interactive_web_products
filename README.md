@@ -20,11 +20,13 @@ A public library of standalone HTML5 demos: quizzes, solution finders, promo min
 
 - [Interactive training simulator](https://darlesgames.github.io/interactive_web_products/07_interactive_training_simulator/) — an Ares Frontier negotiation simulator with client dialogue, choices and consequences, a darts mini-game, and a skills debrief.
 
+- [Speech Trainer — Stranger Things](https://darlesgames.github.io/interactive_web_products/08_Speech%20Trainer%20-%20Stranger%20Things/) — an educational detective game for A2 Russian practice: question five witnesses, gather evidence, use language support, and present a hypothesis. Supports text input and voice input in compatible browsers. In development.
+
 Open the [complete Darles Games product catalog](https://darlesgames.github.io/interactive_web_products/) to browse and filter all demos.
 
 ## Languages
 
-The catalog and the original six products (folders `00`–`05`) support Russian and English. The selected language is stored in `localStorage` under `darlesLanguage` and passed to demos through `?lang=ru` or `?lang=en`. The classic diagnostic quiz (`06`) and interactive training simulator (`07`) currently run in Russian; their catalog cards are available in both languages.
+The catalog and the original six products (folders `00`–`05`) support Russian and English. The selected language is stored in `localStorage` under `darlesLanguage` and passed to demos through `?lang=ru` or `?lang=en`. The classic diagnostic quiz (`06`), interactive training simulator (`07`), and speech trainer (`08`) currently run in Russian; their catalog cards are available in both languages.
 
 ## Repository structure
 
@@ -42,7 +44,8 @@ The catalog and the original six products (folders `00`–`05`) support Russian 
 ├── 04_catch_discount/
 ├── 05_creeting_cards/
 ├── 06_diagnostic_quiz__classic/
-└── 07_interactive_training_simulator/
+├── 07_interactive_training_simulator/
+└── 08_Speech Trainer - Stranger Things/
 ```
 
 Every product remains standalone and does not depend on files from another product folder. The catalog requires no npm packages, build process, backend, or external framework.

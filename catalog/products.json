@@ -150,5 +150,24 @@
         "status": "Demo"
       }
     }
+  },
+  {
+    "id": "speech-trainer-stranger-things",
+    "title": "Очень странные дела — речевой тренажёр A2",
+    "folder": "08_Speech Trainer - Stranger Things",
+    "category": "training",
+    "categoryTitle": "Обучение и тренажёры",
+    "description": "Учебный детектив для практики русского A2: вопросы пяти свидетелям, сбор улик, речевые подсказки и проверка собственной версии.",
+    "status": "В разработке",
+    "order": 90,
+    "featured": false,
+    "translations": {
+      "en": {
+        "title": "Speech Trainer — Stranger Things",
+        "categoryTitle": "Learning and training simulators",
+        "description": "An A2 Russian practice detective game with five witnesses, free-text questions, evidence gathering, language support, and a hypothesis check. Voice input is available in supported browsers.",
+        "status": "In development"
+      }
+    }
   }
 ]
